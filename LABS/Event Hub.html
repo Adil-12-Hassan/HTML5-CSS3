@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2563eb;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            padding: 10px;
+            background-color: #6c82ee;
+            border-radius: 4px;
+        }
+
+        nav ul li:hover {
+            background-color: #8698f2;
+            transition: 0.3s ease;
+            transform: translateX(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: #2563eb;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 8px;
+        }
+
+        article {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        article h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        article p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        article img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Event Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#upcoming-events">Upcoming Events</a></li>
+                <li><a href="#past-events">Past Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <article>
+                <h3>Frontend Developer Internship</h3>
+                <p>Join us for a deep dive into the latest advancements in artificial intelligence and machine
+                    learning. Industry leaders will share insights and case studies on how AI is transforming various
+                    sectors.
+                    <br><br>Date: August 10, 2024
+                </p>
+            </article>
+
+            <article>
+                <h3>Web Development Bootcamp</h3>
+                <p>A hands-on workshop designed for developers looking to enhance their skills in modern web
+                    technologies including React, Node.js, and GraphQL. Perfect for both beginners and experienced
+                    developers.
+                    <br><br>
+                    Date: September 5, 2024
+                </p>
+            </article>
+        </section>
+
+        <section id="past-events">
+            <h2>Past Events</h2>
+            <article>
+                <h3>Cybersecurity Summit 2024</h3>
+                <p>An event focusing on the latest trends and threats in cybersecurity. Experts discussed strategies for
+                    protecting data and ensuring privacy in an increasingly digital world.
+                    <br><br>
+                    Date: June 15, 2024
+                </p>
+                <img src="https://picsum.photos/400/250?random=1" alt="cyber-security">
+            </article>
+
+            <article>
+                <h3>Blockchain Expo 2024</h3>
+                <p>A comprehensive event covering the future of blockchain technology. Topics included decentralized
+                    finance (DeFi), smart contracts, and the impact of blockchain on various industries.
+                    <br><br>
+                    Date: July 20, 2024
+                </p>
+                <img src="https://picsum.photos/400/250?random=2" alt="block-chain">
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

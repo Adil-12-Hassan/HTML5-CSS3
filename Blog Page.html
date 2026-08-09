@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Blog — Modern Romance</title>
+    <style>
+        /* Custom Properties from your Root Scheme */
+        :root {
+            /* Brand Colors */
+            --primary: #E63946;
+            /* Crimson Flame */
+            --primary-hover: #D62839;
+            /* Darker red hover */
+            --secondary: #FF2A75;
+            /* Hot Passion Pink */
+            --accent: #FFB3C1;
+            /* Soft Blush Pink */
+
+            /* Dark Theme Surfaces */
+            --bg-main: #12121A;
+            /* Sleek Dark Background */
+            --bg-card: #1A1A26;
+            /* Elevated Card Surface */
+            --bg-card-hover: #222233;
+            /* Card Hover State */
+
+            /* Typography & Borders */
+            --text-primary: #FFFFFF;
+            /* Pure Snow White */
+            --text-secondary: #A0A0B0;
+            /* Muted Light Gray */
+            --border-subtle: #2A2A3D;
+            /* Subtle UI Divider */
+
+            /* Glassmorphism & Accents */
+            --glass-card: rgba(255, 42, 117, 0.05);
+            --glow-accent: 0 8px 32px 0 rgba(230, 57, 70, 0.37);
+        }
+
+        /* Base Resets */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons & Badges */
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-primary);
+            padding: 10px 22px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            background: var(--glass-card);
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a:not(.btn-primary) {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:not(.btn-primary):hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 900px;
+            margin: 60px auto 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-main));
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            box-shadow: var(--glow-accent);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.75rem;
+            margin: 40px 0 24px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 12px;
+        }
+
+        /* Blog Cards Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .card-tag {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: var(--accent);
+            font-weight: 600;
+            transition: gap 0.2s ease;
+        }
+
+        .card-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Newsletter CTA Card */
+        .newsletter-card {
+            margin: 60px 0;
+            padding: 40px;
+            background: var(--glass-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .newsletter-card h2 {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Pulse<span>.</span></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Categories</a>
+            <a href="#" class="btn-primary">Subscribe</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <span class="badge">Featured Article</span>
+        <h1>The Art of Building Modern Digital Connections</h1>
+        <p>Explore how AI, design, and interactive UX are shaping the future of online dating and dynamic social
+            platforms.
+        </p>
+        <div class="hero-meta">
+            <span>By Alex Rivera</span> • <span>5 min read</span>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="container">
+        <h2 class="section-title">Latest Posts</h2>
+
+        <div class="blog-grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card-tag">UI / UX Design</div>
+                <h3 class="card-title">Glassmorphism & Neon: Designing High-Energy UIs</h3>
+                <p class="card-excerpt">How subtle blur effects and bold neon accents drive deeper engagement in modern
+                    web
+                    applications.</p>
+                <a href="#" class="card-link">Read More &rarr;</a>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-tag">Matchmaking Tech</div>
+                <h3 class="card-title">Beyond the Swipe: Intent-Driven Algorithms</h3>
+                <p class="card-excerpt">Why modern dating platforms are ditching simple swipes in favor of micro-prompts
+                    and
+                    voice notes.</p>
+                <a href="#" class="card-link">Read More &rarr;</a>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-tag">Security & Safety</div>
+                <h3 class="card-title">AI Profile Verification in Real-Time Applications</h3>
+                <p class="card-excerpt">Implementing selfie checks and automated bot detection to create safer online
+                    environments.</p>
+                <a href="#" class="card-link">Read More &rarr;</a>
+            </article>
+        </div>
+
+        <!-- Newsletter CTA -->
+        <section class="newsletter-card">
+            <h2>Never Miss a Beat</h2>
+            <p>Subscribe to our weekly digest for the latest insights on design, tech, and digital products.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn-primary">Join Newsletter</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Pulse Media. Built with passion & vibrant design.</p>
+    </footer>
+
+</body>
+
+</html>

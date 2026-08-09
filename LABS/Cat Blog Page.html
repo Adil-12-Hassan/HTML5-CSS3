@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Whiskers' Blog</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --primary: #f59e0b;
+            --secondary: #1f2937;
+            --background: #f8fafc;
+            --white: #ffffff;
+            --text: #374151;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        /* Reset & Basic CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', "segoe ui", "helvetica neue", helvetica, arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            align-items: center;
+            padding: 50px 20px;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+
+        /* Hero Section */
+        figure {
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            display: block;
+        }
+
+        figcaption {
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+            border-radius: var(--radius);
+        }
+
+        nav a:hover {
+            color: white;
+            background: var(--primary);
+        }
+
+        /* Main */
+        main {
+            width: min(90%, 900px);
+            margin: 50px auto;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 60px;
+        }
+
+        /* Article */
+        article {
+            background: white;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+
+        article:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Headings */
+        h1 {
+            color: var(--secondary);
+            margin-bottom: 50px;
+            font-size: 40px;
+        }
+
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .main-heading {
+            text-align: center;
+        }
+
+        /* Paragraphs */
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        /* Contact Links */
+        address a {
+            color: #ffd166;
+            text-decoration: none;
+        }
+
+        address a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width:768px) {
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            header {
+                padding: 30px 15px;
+            }
+
+            article {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="main-heading">Welcome to Mr. Whiskers' Blog Page!</h1>
+            <figure>
+                <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg" alt="a cat in garden">
+                <figcaption>Mr. Whiskers in the Garden</figcaption>
+            </figure>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#posts">Posts</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>About</h2>
+                <p>Hi there! I'm Jane Doe, a passionate writer who finds endless inspiration in the curious habits of my
+                    beloved
+                    cat, Mr. Whiskers.</p>
+                <p>He brings laughter to every room, whether he is chasing sunbeams, pouncing on shadows, or demanding a
+                    second dinner.</p>
+            </section>
+            <section id="posts">
+                <h2>Posts</h2>
+                <article>
+                    <h3>Mr. Whiskers' First Day Home</h3>
+                    <p>Mr. Whiskers arrived at my home on a rainy afternoon, and from the very first moment he stepped
+                        into the hallway, he acted as though he had always belonged there.</p>
+                    <p>He explored every corner with quiet confidence, then curled up by the window as if he had been
+                        waiting for this exact day all along.</p>
+                </article>
+                <article id="post">
+                    <h3>Mr. Whiskers' First Bath</h3>
+                    <p>Bath time was never his favorite moment, but he handled it with dramatic flair and a level of
+                        dignity that made even the most ordinary routine feel ceremonial.</p>
+                    <p>Afterward, he would stalk through the house like a tiny king, leaving behind a trail of wet paw
+                        prints and a very serious expression.</p>
+                </article>
+                <article>
+                    <h3>Mr. Whiskers' First Birthday Party</h3>
+                    <p>For his birthday, I set up a little celebration with ribbon streamers, a tiny cake, and a pile of
+                        his favorite toys.</p>
+                    <p>He spent most of the party investigating the decorations, then settled down to nap in the middle
+                        of the confetti as if he had planned the whole event himself.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <section id="contact">
+                <h2>Contact</h2>
+                <address>
+                    <a href="tel:5555555555">555-555-5555</a><br>
+                    <a href="mailto:fake@email.com">fake@email.com</a>
+                </address>
+            </section>
+        </footer>
+    </div>
+</body>
+
+</html>

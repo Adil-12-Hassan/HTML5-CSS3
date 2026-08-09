@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory App</title>
+    <style>
+        span {
+            display: inline-block;
+        }
+
+        .read {
+            background: linear-gradient(180deg, rgb(124, 238, 124), );
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Book Inventory</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <!-- Body of Table -->
+        <tbody>
+            <!-- First Row -->
+            <tr class="read">
+                <td>The Three Musketeers</td>
+                <td>Alexandre Dumas</td>
+                <td>Historical Novel</td>
+                <td>
+                    <span class="status">Read</span>
+                </td>
+                <td>
+                    <span class="rate three">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </td>
+            </tr>
+            <!-- Second Row -->
+            <tr class="to-read">
+                <td>The Plague</td>
+                <td>Albert Camus</td>
+                <td>Philosophical Novel</td>
+                <td>
+                    <span class="status">To-Read</span>
+                </td>
+                <td>
+                    <span class="rate three">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </td>
+            </tr>
+            <!-- Third Row -->
+            <tr class="read">
+                <td>The Metamorphosis</td>
+                <td>Franz Kafka</td>
+                <td>Novella</td>
+                <td>
+                    <span class="status">Read</span>
+                </td>
+                <td>
+                    <span class="rate three">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+        <!-- Fourth Row -->
+        <tr class="read">
+            <td>Dead Souls</td>
+            <td>Nikolai Gogol</td>
+            <td>Picaresque</td>
+            <td>
+                <span class="status">Read</span>
+            </td>
+            <td>
+                <span class="rate three">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </td>
+        </tr>
+        <!-- Fifth Row -->
+        <tr class="in-progress">
+            <td>Lord of the Flies</td>
+            <td>William Golding</td>
+            <td>Allegorical Novel</td>
+            <td>
+                <span class="status">In Progress</span>
+            </td>
+            <td>
+                <span class="rate three">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

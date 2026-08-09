@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--color-background-tertiary);
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem 1rem
+        }
+
+        .card {
+            background: var(--color-background-primary);
+            border-radius: 16px;
+            border: 0.5px solid var(--color-border-tertiary);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 1rem;
+            border-bottom: 0.5px solid var(--color-border-tertiary)
+        }
+
+        .card-header h1 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--color-text-primary)
+        }
+
+        .card-header p {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-top: 2px
+        }
+
+        .input-row {
+            display: flex;
+            gap: 8px;
+            padding: 1rem 1.5rem;
+            border-bottom: 0.5px solid var(--color-border-tertiary)
+        }
+
+        .input-row input {
+            flex: 1;
+            height: 36px;
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: 8px;
+            padding: 0 12px;
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--color-background-secondary);
+            color: var(--color-text-primary);
+            outline: none;
+            transition: border 0.15s
+        }
+
+        .input-row input:focus {
+            border-color: var(--color-border-primary)
+        }
+
+        .input-row input::placeholder {
+            color: var(--color-text-tertiary)
+        }
+
+        .add-btn {
+            height: 36px;
+            padding: 0 16px;
+            border: none;
+            border-radius: 8px;
+            background: #534AB7;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.15s
+        }
+
+        .add-btn:hover {
+            opacity: 0.88
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0.5rem 0
+        }
+
+        .todo-list:empty::after {
+            content: "No tasks yet — add one above";
+            display: block;
+            text-align: center;
+            padding: 2rem;
+            font-size: 13px;
+            color: var(--color-text-tertiary)
+        }
+
+        .todo-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 1.5rem;
+            transition: background 0.1s;
+            cursor: pointer;
+            border-bottom: 0.5px solid var(--color-border-tertiary)
+        }
+
+        .todo-list li:last-child {
+            border-bottom: none
+        }
+
+        .todo-list li:hover {
+            background: var(--color-background-secondary)
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1.5px solid var(--color-border-secondary);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s
+        }
+
+        .done .check-icon {
+            background: #534AB7;
+            border-color: #534AB7
+        }
+
+        .done .check-icon::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 8px;
+            border: 1.5px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(40deg) translateY(-1px)
+        }
+
+        .todo-text {
+            flex: 1;
+            font-size: 14px;
+            color: var(--color-text-primary);
+            transition: all 0.15s;
+            user-select: none
+        }
+
+        .done .todo-text {
+            text-decoration: line-through;
+            color: var(--color-text-tertiary)
+        }
+
+        .del-btn {
+            width: 26px;
+            height: 26px;
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--color-text-tertiary);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.15s, background 0.15s;
+            flex-shrink: 0
+        }
+
+        .todo-list li:hover .del-btn {
+            opacity: 1
+        }
+
+        .del-btn:hover {
+            background: var(--color-background-danger);
+            border-color: var(--color-border-danger);
+            color: var(--color-text-danger)
+        }
+
+        .footer {
+            padding: 0.75rem 1.5rem;
+            border-top: 0.5px solid var(--color-border-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .footer span {
+            font-size: 12px;
+            color: var(--color-text-tertiary)
+        }
+
+        .clear-btn {
+            font-size: 12px;
+            color: var(--color-text-tertiary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif
+        }
+
+        .clear-btn:hover {
+            color: var(--color-text-danger)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1>My Tasks</h1>
+            <p>Click a task to mark it done</p>
+        </div>
+        <div class="input-row">
+            <input type="text" id="inp" placeholder="Add a new task..." />
+            <button class="add-btn" id="addBtn">Add</button>
+        </div>
+        <ul class="todo-list" id="ul">
+            <li>
+                <div class="check-icon"></div><span class="todo-text">Learn event delegation</span><button
+                    class="del-btn" title="Delete">❌</button>
+            </li>
+            <li>
+                <div class="check-icon"></div><span class="todo-text">Build a Todo app</span><button class="del-btn"
+                    title="Delete">❌</button>
+            </li>
+            <li class="done">
+                <div class="check-icon"></div><span class="todo-text">Master DOM manipulation</span><button
+                    class="del-btn" title="Delete">❌</button>
+            </li>
+        </ul>
+        <div class="footer">
+            <span id="count">1 of 3 done</span>
+            <button class="clear-btn" id="clearDone">Clear done</button>
+        </div>
+    </div>
+
+    <script>
+        const ul = document.getElementById('ul');
+        const inp = document.getElementById('inp');
+        const addBtn = document.getElementById('addBtn');
+        const countEl = document.getElementById('count');
+
+        function updateCount() {
+            const all = ul.querySelectorAll('li').length;
+            const done = ul.querySelectorAll('li.done').length;
+            countEl.textContent = all === 0 ? 'No tasks' : done + ' of ' + all + ' done';
+        }
+        function addTask() {
+            const val = inp.value.trim();
+            if (!val) return;
+            const li = document.createElement('li');
+            li.innerHTML = '<div class="check-icon"></div><span class="todo-text">' + val + '</span><button class="del-btn" title="Delete">❌</button>';
+            ul.appendChild(li);
+            inp.value = '';
+            updateCount();
+        }
+
+        addBtn.addEventListener('click', addTask);
+        inp.addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
+
+        ul.addEventListener('click', function (e) {
+            if (e.target.classList.contains('del-btn')) {
+                e.target.closest('li').remove();
+                updateCount();
+                return;
+            }
+            const li = e.target.closest('li');
+            if (li) { li.classList.toggle('done'); updateCount(); }
+        });
+
+        document.getElementById('clearDone').addEventListener('click', function () {
+            ul.querySelectorAll('li.done').forEach(li => li.remove());
+            updateCount();
+        });
+        updateCount();
+    </script>
+</body>
+
+</html>
